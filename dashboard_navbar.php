@@ -40,6 +40,7 @@
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li> <a href="add-hosting-provider.php"> hosting </a> </li>
                                 <li> <a href="hosting-size.php"> hosting size </a> </li>
+                                <li> <a href="service-type.php"> service type </a> </li>
                             </ul>
                         
                     </li>

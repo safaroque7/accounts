@@ -12,6 +12,9 @@
 		$country 		= $_POST['country'];
 		$district 		= $_POST['district'];
 		$upazila 		= $_POST['upazila'];
+
+		$service 		= implode(', ', $_POST['service']);
+
 		$filename 		= $_FILES['photo']['tmp_name'];
 		$destination 	= 'upload/' . uniqid() . '_' . $_FILES['photo']['name'];
 
@@ -23,9 +26,11 @@
 			$image = move_uploaded_file($filename, $destination);
 
 			if ($image) {
-				$sql = "INSERT INTO all_client(website, hosting, hostingsize, name, phone, email, country, district, upazila, photo) VALUES('".$website."', '".$hosting."', '".$hostingsize."', '".$name."', '". $phone ."', '". $email ."', '". $country ."', '". $district ."', '". $upazila ."', '". $destination ."')";
+				$sql = "INSERT INTO all_client(website, hosting, hostingsize, name, phone, email, country, district, upazila, photo, service) VALUES('".$website."', '".$hosting."', '".$hostingsize."', '".$name."', '". $phone ."', '". $email ."', '". $country ."', '". $district ."', '". $upazila ."', '". $destination ."', '".$service."')";
+
+
 			} else {
-				$sql = "INSERT INTO all_client(website, hosting, hostingsize, name, phone, email, country, district, upazila) VALUES('".$website."', '".$hosting."', '".$hostingsize."', '".$name."', '". $phone ."', '". $email ."', '". $country ."', '". $district ."', '". $upazila ."')";
+				$sql = "INSERT INTO all_client(website, hosting, hostingsize, name, phone, email, country, district, upazila, service) VALUES('".$website."', '".$hosting."', '".$hostingsize."', '".$name."', '". $phone ."', '". $email ."', '". $country ."', '". $district ."', '". $upazila ."', '".$service."')";
 			}
 
 			$result = $conn->query($sql);

@@ -19,6 +19,7 @@
 					<th> Phone </th>
 					<th> Email </th>
 					<th> Address </th>
+					<th> Services </th>
 					<th> Actions </th>
 				</thead>
 
@@ -37,6 +38,11 @@
 							<td> <?php echo $rows['phone']; ?> </td>
 							<td> <?php echo $rows['email']; ?> </td>
 							<td> <?php echo $rows['upazila'] .', ';  echo $rows['district'] .', ';   echo $rows['country']; ?> </td>
+							<td> 
+								<?php
+									$services = $rows['service'];
+								?> 
+							</td>
 							<td> 
 								<a href="edit-all-client.php?id=<?php echo $rows['id']?>" class="btn btn-info btn-sm"> edit </a>
 								<a href="" class="btn btn-danger btn-sm"> delete </a>

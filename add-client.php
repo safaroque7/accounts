@@ -36,7 +36,7 @@
                                 <option value="#"> -- select one -- </option>
                                 
                                 <?php 
-                                    if ($rows = mysqli_fetch_assoc($result)) { ?>
+                                    while ($rows = mysqli_fetch_assoc($result)) { ?>
                                         <option value="<?php echo $rows['name'];?>"> <?php echo $rows['name']; ?> </option>
                                     <?php } ?>
                             </select>
@@ -46,7 +46,7 @@
 
                     <div class="col-md-3">
                         <?php 
-                            $sql = "SELECT * FROM hostingsize ORDER BY hostingsizelimit DESC";
+                            $sql = "SELECT * FROM hostingsize ORDER BY hostingsizelimit ASC";
                             $result = $conn->query($sql);
                         ?>                        
                         <div class="form-group">
@@ -109,13 +109,100 @@
                     <input type="file" name="photo" id="client-photo" class="form-control">
                 </div>
 
-                <input type="submit" value="submit" name ="submit" class="btn btn-primary">
+                
 
-            </form>
+            
+</div>
+        
+<div class="col-md-2">
+
+    
+
+    <div class="service-cateogry form-group">
+        <div class="card-header bg-primary text-white">
+            <p> service category </p>
+        </div>
+        <div class="card-body bg-white">
+
+            <!-- domain -->
+            <div class="form-group">
+                <div class="form-check">
+
+                    <?php 
+                        $sql = "SELECT * FROM services";
+                        $result = $conn->query($sql); ?>
+
+                        <ul>
+                            
+                        
+
+                        <?php
+                            while ($rows = mysqli_fetch_assoc($result)) { ?>
+                                <li class="form-group">
+                            
+                                  <input class="form-check-input" type="checkbox" name="<?php echo $rows['service'];?>" id="gridCheck">
+                                  <label class="form-check-label" for="gridCheck"> <?php echo $rows['service'];?> </label>
+
+                                  </li>
+
+                          <?php } ?>
+
+                          </ul>
+
+                </div>
+          </div>
+            
 
         </div>
+    </div>
 
-        <?php include('service-all-client.php'); ?>
+
+    <div class="website-category">
+        <div class="card-header bg-primary text-white">
+            <p> website category </p>
+        </div>
+        <div class="card-body bg-white">
+
+            <!-- online news portal -->
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="webstite-category" id="gridRadios1" value="online news portal">
+                  <label class="form-check-label" for="gridRadios1"> online news portal </label>
+                </div>
+            </div>
+
+            <!-- official website -->
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="webstite-category" id="gridRadios1" value="official website">
+                  <label class="form-check-label" for="gridRadios1"> official website </label>
+                </div>
+            </div>                    
+
+            <!-- personal website -->
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="webstite-category" id="gridRadios1" value="personal website">
+                  <label class="form-check-label" for="gridRadios1"> personal website </label>
+                </div>
+            </div>                    
+
+            <!-- personal website -->
+            <div class="form-group">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="webstite-category" id="gridRadios1" value="school college website">
+                  <label class="form-check-label" for="gridRadios1"> school college website </label>
+                </div>
+            </div>    
+        </div>
+
+<input type="submit" value="submit" name="submit" class="btn btn-info">
+
+</form>
+    </div>
+</div>
+
+<?php include('service-all-client.php'); ?>
 
     </div>
 </div>

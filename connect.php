@@ -132,6 +132,20 @@
 		echo "failed to create data table" . $conn->connect_error;
 	} else {
 		echo "successfully to create data table";
+	}*/	
+/*
+	//create hosting provider table
+	$sql = "CREATE TABLE services(
+		id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		service VARCHAR (100) NOT NULL
+	)";
+
+	$result = $conn->query($sql);
+
+	if (!$result) {
+		echo "failed to create data table" . $conn->connect_error;
+	} else {
+		echo "successfully to create data table";
 	}*/
 
 ?>
