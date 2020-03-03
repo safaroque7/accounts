@@ -46,7 +46,7 @@
 
                     <div class="col-md-3">
                         <?php 
-                            $sql = "SELECT * FROM hostingsize";
+                            $sql = "SELECT * FROM hostingsize ORDER BY hostingsizelimit DESC";
                             $result = $conn->query($sql);
                         ?>                        
                         <div class="form-group">
