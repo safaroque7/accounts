@@ -28,6 +28,17 @@
 	}
 	//----------------- delete query for services ----------------- //
 
+	//----------------- delete query for all_client ----------------- //
+	$sql2 = "DELETE FROM all_client WHERE id = '".$id."'";
+	$result2 = $conn->query($sql2);
+
+	if (!$result2) {
+		echo "failed to delete item";
+	} else {
+		header('location: all-client-dashboard.php');
+	}
+	//----------------- delete query for services ----------------- //
+
 	
 ?>
 

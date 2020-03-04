@@ -2,8 +2,6 @@
     //for header
     include('header.php');
 ?>
-            
-
 <div class="main-content">
     <div class="row">
         <div class="col-md-6 ml-5">
@@ -22,7 +20,6 @@
                             $sql = "SELECT * FROM hostingprovider";
                             $result = $conn->query($sql);   
                         ?>
-
                         <div class="form-group">
                             <label for="hosting"> hosting </label>
                             <select name="hosting" id="hosting" class="form-control">

@@ -13,7 +13,21 @@
 		$district 		= $_POST['district'];
 		$upazila 		= $_POST['upazila'];
 
-		$service 		= implode(', ', $_POST['service']);
+		/*//////// for multiple checkbox data insert into mysql database ////////
+		$sql = "SELECT * FROM services";
+        $result = $conn->query($sql);
+        $rows = mysqli_fetch_assoc($result);
+
+
+		$services 		= $rows['service'];
+		$blankservice 	= '';
+			if ($services) {
+				foreach ($services as $service) {
+					$blankservice .= $service . ', ';
+				}
+			}
+		$serviceValue = rtrim($blankservice, ',');
+		//////// for multiple checkbox data insert into mysql database ////////*/
 
 		$filename 		= $_FILES['photo']['tmp_name'];
 		$destination 	= 'upload/' . uniqid() . '_' . $_FILES['photo']['name'];
@@ -25,7 +39,26 @@
 
 			$image = move_uploaded_file($filename, $destination);
 
-			if ($image) {
+
+
+
+
+			///////// for check mail exists or not/////////
+			$sql = "SELECT * FROM all_client WHERE email = '".$email."'";
+			$result = $conn->query($sql);
+			$rows= mysqli_fetch_assoc($result);
+
+			if ($rows['email'] == $email ) {
+				echo $email ." email exists... try to another email";# code...
+
+			} 
+			///////// for check mail exists or not/////////
+
+			else {
+ 				
+
+
+if ($image) {
 				$sql = "INSERT INTO all_client(website, hosting, hostingsize, name, phone, email, country, district, upazila, photo, service) VALUES('".$website."', '".$hosting."', '".$hostingsize."', '".$name."', '". $phone ."', '". $email ."', '". $country ."', '". $district ."', '". $upazila ."', '". $destination ."', '".$service."')";
 
 
@@ -40,10 +73,14 @@
 			} else {
 				header('location: add-client.php');
 			}
+		}
 			
 		}else {
 			echo "image size exit. pls try to under 100 kb image size";
 		}
-	
-	}
+
+
+
+			}
+
 ?>

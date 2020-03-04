@@ -45,7 +45,8 @@
 							</td>
 							<td> 
 								<a href="edit-all-client.php?id=<?php echo $rows['id']?>" class="btn btn-info btn-sm"> edit </a>
-								<a href="" class="btn btn-danger btn-sm"> delete </a>
+								<a href="delete.php?id=<?php echo $rows['id'];?>" onclick = "return confirm('are you sure want to delete this item?')" class="btn btn-danger btn-sm"> delete </a>
+
 							</td>
 						</tr>
 					<?php } ?>
