@@ -40,9 +40,6 @@
 			$image = move_uploaded_file($filename, $destination);
 
 
-
-
-
 			///////// for check mail exists or not/////////
 			$sql = "SELECT * FROM all_client WHERE email = '".$email."'";
 			$result = $conn->query($sql);
