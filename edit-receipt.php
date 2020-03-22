@@ -4,8 +4,11 @@
 ?>
 
 <?php 
-    $sql ="SELECT * FROM all_client ";
+    $id = $_GET['id'];
+
+    $sql ="SELECT * FROM income WHERE id = '".$id."' ";
     $result = $conn->query($sql);
+    $row = mysqli_fetch_assoc($result);
              
 ?>
 
@@ -23,11 +26,9 @@
                     <label for="web"> website name </label>
                     <select name="web" id="web" required class="form-control">
                         <option value="#"> -- select one -- </option>
-                        <?php while ($rows = mysqli_fetch_assoc($result)) { ?>
-                            <option value="<?php echo $rows['website'] ?>"> 
-                                <?php echo $rows['website'] ?> 
-                            </option>
-                        <?php } ?>
+                        <option value="<?php echo $row['web'] ?>" selected> 
+                                <?php if ($row['web'] == $row['web'] ) {echo $row['web']; } ?>
+                        </option>
                     </select>
                 </div>
 
@@ -35,17 +36,20 @@
                     <label for="source"> Service type </label> <br>
                     <select name="source" id="source" class="form-control">
                         <option value="website"> -- select one -- </option>
-                        <option value="domain"> domain </option>
-                        <option value="hosting"> hosting </option>
-                        <option value="website"> website </option>
-                        <option value="support"> support </option>
+
+                        <option value="<?php echo $row['source'] ?>" selected> 
+                            <?php if ($row['source'] == $row['source'] ) {
+                                echo $row['source'] ;
+                            } ?>
+                        </option>
+
                     </select>
                 </div>
 
                  <!-- payment figure  -->
                 <div class="form-group">    
                     <label for="payment"> Payment amount </label>    
-                    <input type="number" name="payment" id="payment" class="form-control" required>
+                    <input type="number" name="payment" id="payment" class="form-control" value="<?php echo $row['payment']; ?>" required>
                 </div>
 
                 <!-- date figure  -->

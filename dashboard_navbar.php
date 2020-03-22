@@ -18,7 +18,7 @@
                         <li>
                             <a href="dashboard.php">Dashboard 1</a>
                         </li>
-                        <li>
+<!--                    <li>
                             <a href="index2.html">Dashboard 2</a>
                         </li>
                         <li>
@@ -26,7 +26,7 @@
                         </li>
                         <li>
                             <a href="index4.html">Dashboard 4</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 
@@ -81,9 +81,14 @@
                 </li>
 
                 <li>
-                    <a href="receipt.php">
+                    <a href="#" class="js-arrow">
                          <i class="fa fa-paperclip" aria-hidden="true"></i>  Receipt
                     </a>
+
+                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                        <li> <a href="receipt.php"> New receipt </a> </li>
+                        <li> <a href="allReceipt.php"> All </a> </li>
+                    </ul>
                 </li>
 
                 <li>

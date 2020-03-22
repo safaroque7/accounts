@@ -22,7 +22,6 @@
                         <?php include('update-button.php') ?>
                     </div>
                 </div>
-                
 
                 <div class="row">
                     <div class="col-md-6">
